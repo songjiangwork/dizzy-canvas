@@ -1,0 +1,60 @@
+<div class="settings-panel">
+  <button class="collapse-btn" (click)="isCollapsed = !isCollapsed">
+    {{ isCollapsed ? '▶' : '▼' }}
+    {{ 'settings.title' | translate }}
+  </button>
+  <div *ngIf="!isCollapsed">
+    <div class="settings-section">
+      <h3>{{ 'settings.background' | translate }}</h3>
+      <input type="color" [ngModel]="settings.backgroundColor" (ngModelChange)="setBackgroundColor($event)">
+    </div>
+    
+    <div class="settings-section">
+      <h3>{{ 'settings.rotationSpeed' | translate }}: {{settings.rotationSpeed}}°/s</h3>
+      <input type="range" min="0" max="30" step="0.5" [ngModel]="settings.rotationSpeed" (ngModelChange)="setRotationSpeed($event)">
+    </div>
+    
+    <div class="settings-section">
+      <h3>{{ 'settings.rotationDirection' | translate }}</h3>
+      <div class="direction-buttons">
+        <button 
+          [class.active]="settings.rotationDirection === 'clockwise'"
+          (click)="setRotationDirection('clockwise')">
+          {{ 'settings.clockwise' | translate }}
+        </button>
+        <button 
+          [class.active]="settings.rotationDirection === 'counterclockwise'"
+          (click)="setRotationDirection('counterclockwise')">
+          {{ 'settings.counterclockwise' | translate }}
+        </button>
+      </div>
+    </div>
+    
+    <div class="settings-section">
+      <h3>{{ 'settings.rotation' | translate }}</h3>
+      <button (click)="toggleRotation()">
+        {{ isRotating ? ('settings.pauseRotation' | translate) : ('settings.startRotation' | translate) }}
+      </button>
+    </div>
+    
+    <div class="settings-section">
+      <h3>{{ 'settings.rotationCenter' | translate }}</h3>
+      <button (click)="resetRotationCenter()">
+        {{ 'settings.resetCenter' | translate }}
+      </button>
+      <div class="center-info" *ngIf="showCenterCoordinates">
+        X: {{settings.rotationCenter.x.toFixed(0)}}, Y: {{settings.rotationCenter.y.toFixed(0)}}
+      </div>
+    </div>
+    
+    <div class="settings-section">
+      <h3>{{ 'settings.canvasSize' | translate }}: {{settings.radius}}px</h3>
+      <input type="range" 
+             [min]="minRadius"
+             [max]="maxRadius" 
+             step="10" 
+             [ngModel]="settings.radius" 
+             (ngModelChange)="setRadius($event)">
+    </div>
+  </div>
+</div>

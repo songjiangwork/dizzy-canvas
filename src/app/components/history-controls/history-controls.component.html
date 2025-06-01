@@ -1,0 +1,19 @@
+<div class="history-controls">
+  <button 
+    [disabled]="!canUndo" 
+    (click)="undo()"
+    title="{{ 'history.undo' | translate }}">
+    <span class="icon">↩</span>
+  </button>
+  <button 
+    [disabled]="!canRedo" 
+    (click)="redo()"
+    title="{{ 'history.redo' | translate }}">
+    <span class="icon">↪</span>
+  </button>
+  <button 
+    (click)="clear()"
+    title="{{ 'history.clear' | translate }}">
+    <span class="icon">🗑</span>
+  </button>
+</div>

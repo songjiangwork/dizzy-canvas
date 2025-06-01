@@ -1,0 +1,15 @@
+<div class="canvas-container">
+  <canvas #drawingCanvas
+          [width]="canvasSize"
+          [height]="canvasSize"
+          [style.background-color]="settings?.backgroundColor || '#ffffff'"
+          (mousedown)="onMouseDown($event)"
+          (mousemove)="onMouseMove($event)"
+          (mouseup)="onMouseUp()"
+          (mouseleave)="onMouseUp()"
+          (touchstart)="onTouchStart($event)"
+          (touchmove)="onTouchMove($event)"
+          (touchend)="onTouchEnd()">
+  </canvas>
+</div>
+<!-- 红点和极坐标等全部在canvas像素层绘制，不再用div绘制中心点 -->

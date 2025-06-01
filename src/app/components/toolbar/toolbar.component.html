@@ -1,0 +1,43 @@
+<div class="toolbar">
+  <button class="collapse-btn" (click)="isCollapsed = !isCollapsed">
+    {{ isCollapsed ? '▶' : '▼' }}
+    {{ 'toolbar.title' | translate }}
+  </button>
+  <div *ngIf="!isCollapsed">
+    <div class="toolbar-section">
+      <h3>{{ 'toolbar.brushType' | translate }}</h3>
+      <div class="brush-types">
+        <button 
+          [class.active]="currentBrush.type === 'pen'"
+          (click)="setBrushType('pen')">
+          {{ 'toolbar.pen' | translate }}
+        </button>
+        <button 
+          [class.active]="currentBrush.type === 'pencil'"
+          (click)="setBrushType('pencil')">
+          {{ 'toolbar.pencil' | translate }}
+        </button>
+        <button 
+          [class.active]="currentBrush.type === 'brush'"
+          (click)="setBrushType('brush')">
+          {{ 'toolbar.brush' | translate }}
+        </button>
+      </div>
+    </div>
+    
+    <div class="toolbar-section">
+      <h3>{{ 'toolbar.color' | translate }}</h3>
+      <input type="color" [ngModel]="currentBrush.color" (ngModelChange)="setColor($event)">
+    </div>
+    
+    <div class="toolbar-section">
+      <h3>{{ 'toolbar.size' | translate }}: {{currentBrush.size}}</h3>
+      <input type="range" min="1" max="50" [ngModel]="currentBrush.size" (ngModelChange)="setSize($event)">
+    </div>
+    
+    <div class="toolbar-section">
+      <h3>{{ 'toolbar.opacity' | translate }}: {{(currentBrush.opacity * 100).toFixed(0)}}%</h3>
+      <input type="range" min="0" max="1" step="0.01" [ngModel]="currentBrush.opacity" (ngModelChange)="setOpacity($event)">
+    </div>
+  </div>
+</div>

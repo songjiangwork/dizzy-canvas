@@ -1,0 +1,48 @@
+<div class="export-panel" *ngIf="showPanel">
+  <div class="panel-header">
+    <h3>{{ 'export.title' | translate }}</h3>
+    <button class="close-btn" (click)="closePanel()">×</button>
+  </div>
+  
+  <div class="panel-content">
+    <div class="export-option">
+      <h4>{{ 'export.type' | translate }}</h4>
+      <div class="option-buttons">
+        <button 
+          [class.active]="exportType === 'process'"
+          (click)="setExportType('process')">
+          {{ 'export.drawingProcess' | translate }}
+        </button>
+        <button 
+          [class.active]="exportType === 'rotating'"
+          (click)="setExportType('rotating')">
+          {{ 'export.rotatingResult' | translate }}
+        </button>
+      </div>
+    </div>
+    
+    <div class="export-option" *ngIf="exportType === 'process'">
+      <h4>{{ 'export.frameDelay' | translate }}: {{frameDelay}}ms</h4>
+      <input type="range" min="50" max="500" step="10" [(ngModel)]="frameDelay">
+    </div>
+    
+    <div class="export-option" *ngIf="exportType === 'rotating'">
+      <h4>{{ 'export.duration' | translate }}: {{duration / 1000}}s</h4>
+      <input type="range" min="1000" max="5000" step="100" [(ngModel)]="duration">
+    </div>
+    
+    <div class="export-actions">
+      <button 
+        class="export-btn" 
+        (click)="exportGif()"
+        [disabled]="isExporting">
+        {{ isExporting ? ('export.exporting' | translate) : ('export.exportGif' | translate) }}
+      </button>
+    </div>
+    
+    <div class="progress-bar" *ngIf="isExporting">
+      <div class="progress" [style.width.%]="progress"></div>
+      <div class="progress-text">{{progress}}%</div>
+    </div>
+  </div>
+</div>
