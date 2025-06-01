@@ -31,7 +31,8 @@ export class TranslatePipe implements PipeTransform {
       'toolbar.title': '工具栏',
       'history.undo': '撤销',
       'history.redo': '恢复',
-      'history.clear': '清空画板'
+      'history.clear': '清空画板',
+      'settings.quickSelect': '快速选择'
     },
     en: {
       'app.title': 'Dizzy Canvas',
@@ -57,7 +58,8 @@ export class TranslatePipe implements PipeTransform {
       'toolbar.title': 'Toolbar',
       'history.undo': 'Undo',
       'history.redo': 'Redo',
-      'history.clear': 'Clear Canvas'
+      'history.clear': 'Clear Canvas',
+      'settings.quickSelect': 'Quick Select'
     }
   };
 

@@ -11,7 +11,22 @@
     
     <div class="settings-section">
       <h3>{{ 'settings.rotationSpeed' | translate }}: {{settings.rotationSpeed}}°/s</h3>
-      <input type="range" min="0" max="30" step="0.5" [ngModel]="settings.rotationSpeed" (ngModelChange)="setRotationSpeed($event)">
+      <input type="range" min="0" max="360" step="0.5" [ngModel]="settings.rotationSpeed" (ngModelChange)="setRotationSpeed($event)">
+      <div style="margin-top: 4px;">
+        <select [ngModel]="settings.rotationSpeed" (ngModelChange)="setRotationSpeed($event)">
+          <option [ngValue]="1">1°/s</option>
+          <option [ngValue]="5">5°/s</option>
+          <option [ngValue]="10">10°/s</option>
+          <option [ngValue]="20">20°/s</option>
+          <option [ngValue]="30">30°/s</option>
+          <option [ngValue]="50">50°/s</option>
+          <option [ngValue]="75">75°/s</option>
+          <option [ngValue]="100">100°/s</option>
+          <option [ngValue]="180">180°/s</option>
+          <option [ngValue]="360">360°/s</option>
+        </select>
+        <span style="font-size: 12px; color: #888; margin-left: 8px;">({{ 'settings.quickSelect' | translate }})</span>
+      </div>
     </div>
     
     <div class="settings-section">
