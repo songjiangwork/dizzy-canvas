@@ -187,9 +187,11 @@
   </div>
   
   <app-canvas></app-canvas>
-  <app-export-panel></app-export-panel>
-  <app-toolbar></app-toolbar>
-  <app-settings-panel></app-settings-panel>
+  <div style="display: flex; flex-direction: row; align-items: flex-start;">
+    <app-toolbar></app-toolbar>
+    <app-export-panel *ngIf="false;"></app-export-panel>
+    <app-settings-panel></app-settings-panel>
+  </div>
   <app-history-controls></app-history-controls>
 </div>
 

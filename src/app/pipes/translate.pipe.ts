@@ -32,7 +32,15 @@ export class TranslatePipe implements PipeTransform {
       'history.undo': '撤销',
       'history.redo': '恢复',
       'history.clear': '清空画板',
-      'settings.quickSelect': '快速选择'
+      'settings.quickSelect': '快速选择',
+      'export.title': '导出',
+      'export.type': '导出类型',
+      'export.drawingProcess': '绘制过程',
+      'export.rotatingResult': '旋转结果',
+      'export.frameDelay': '帧间隔',
+      'export.duration': '持续时间',
+      'export.exportGif': '导出 GIF',
+      'export.exporting': '正在导出...'
     },
     en: {
       'app.title': 'Dizzy Canvas',
@@ -59,7 +67,15 @@ export class TranslatePipe implements PipeTransform {
       'history.undo': 'Undo',
       'history.redo': 'Redo',
       'history.clear': 'Clear Canvas',
-      'settings.quickSelect': 'Quick Select'
+      'settings.quickSelect': 'Quick Select',
+      'export.title': 'Export',
+      'export.type': 'Export Type',
+      'export.drawingProcess': 'Drawing Process',
+      'export.rotatingResult': 'Rotating Result',
+      'export.frameDelay': 'Frame Delay',
+      'export.duration': 'Duration',
+      'export.exportGif': 'Export GIF',
+      'export.exporting': 'Exporting...'
     }
   };
 
